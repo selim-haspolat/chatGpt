@@ -31,7 +31,6 @@ const AskQuestion = ({
         { q: msg, a: false },
         { a: data.choices[0].message.content, q: false },
       ]);
-      console.log(data.choices[0].message.content);
     } catch (error) {
       console.log(error.message);
       setAllQuestionsAndAnswers([

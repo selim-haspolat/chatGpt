@@ -1,8 +1,6 @@
 import React from "react";
 
 const ChatBubble = ({ Ai , msg}) => {
-  console.log(Ai);
-  console.log(msg);
   return (
     <div className={`flex gap-2 items-center ${Ai || "flex-row-reverse"} mx-3`}>
       <img
