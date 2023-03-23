@@ -57,7 +57,7 @@ const AskQuestion = ({
       <input
         value={questionInput}
         onChange={(e) => setQuestionInput(e.target.value)}
-        className={`rounded-xl outline-none p-3 pr-0 w-full ${
+        className={`rounded-xl outline-none p-2 md:p-3 pr-0 w-full ${
           loading && "cursor-not-allowed"
         }`}
         disabled={loading}
