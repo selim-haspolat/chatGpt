@@ -25,7 +25,8 @@ const AskQuestion = ({
       const { data } = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [{ role: "user", content: msg }],
-      });
+      })
+      console.log(data.choices[0].message.content);
       setAllQuestionsAndAnswers([
         ...allQuestionsAndAnswers,
         { q: msg, a: false },
@@ -57,7 +58,7 @@ const AskQuestion = ({
       <input
         value={questionInput}
         onChange={(e) => setQuestionInput(e.target.value)}
-        className={`rounded-xl bg-white outline-none p-2 md:p-3 pr-0 w-full ${
+        className={`rounded-xl max-h-40 resize-y bg-white outline-none p-2 md:p-3 pr-0 w-full ${
           loading && "cursor-not-allowed"
         }`}
         disabled={loading}

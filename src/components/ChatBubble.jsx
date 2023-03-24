@@ -12,7 +12,7 @@ const ChatBubble = ({ Ai , msg}) => {
         }
         alt="user"
       />
-      <div className="py-1 px-3 md:py-2 max-w-[75%] bg-white rounded-xl break-words text-black">{msg}</div>
+      <div className="py-1 px-3 md:py-2 max-w-[75%] bg-white rounded-xl break-words text-black whitespace-pre-line">{msg}</div>
     </div>
   );
 };
