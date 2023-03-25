@@ -1,19 +1,13 @@
 import React, { useState } from "react";
-import { Configuration, OpenAIApi } from "openai";
 
 const AskQuestion = ({
   allQuestionsAndAnswers,
   setAllQuestionsAndAnswers,
   setLoading,
   loading,
+  openai,
 }) => {
   const [questionInput, setQuestionInput] = useState("");
-
-  const openai = new OpenAIApi(
-    new Configuration({
-      apiKey: process.env.REACT_APP_API_KEY,
-    })
-  );
 
   const askQuestion = async (msg) => {
     setAllQuestionsAndAnswers([
@@ -25,6 +19,7 @@ const AskQuestion = ({
       const { data } = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [{ role: "user", content: msg }],
+        max_tokens: 500,
       });
       console.log(data.choices[0].message.content);
       setAllQuestionsAndAnswers([

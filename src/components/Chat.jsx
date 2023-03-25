@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import AskQuestion from "./AskQuestion";
 import UserBubble from "./ChatBubble";
 
-const Chat = () => {
-  const [allQuestionsAndAnswers, setAllQuestionsAndAnswers] = useState([]);
-  const [loading, setLoading] = useState(false);
+const Chat = ({
+  openai,
+  loading,
+  setLoading,
+  setAllQuestionsAndAnswers,
+  allQuestionsAndAnswers,
+}) => {
   return (
     <div className="flex flex-col gap-5 container mx-5 rounded-lg bg-indigo-400 h-[90vh] overflow-auto pt-10">
       <div className="flex flex-col grow justify-end gap-2">
@@ -19,6 +23,7 @@ const Chat = () => {
       )}
 
       <AskQuestion
+        openai={openai}
         setAllQuestionsAndAnswers={setAllQuestionsAndAnswers}
         allQuestionsAndAnswers={allQuestionsAndAnswers}
         setLoading={setLoading}
